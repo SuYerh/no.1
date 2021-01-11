@@ -1,0 +1,67 @@
+判断直角三角形
+描述
+输入三角形的3条边长， 判断三角形是否是直角三角形。
+输入
+第1行是一个整数n，表示随后有n组数据。每组数据占一行，包含3个整数代表3条边长(每个整数的平方能够用32位整数表示)，用空格分隔。
+输出
+每组输出占一行，如果是直角三角形输出Yes，不是则输出No。
+
+样例
+
+输入          
+2
+3 4 5   
+3 5 7
+
+输出
+Yes
+No
+#include<stdio.h>
+#define N 100
+int main(){
+	int n, t, a;
+	a=0;
+	scanf("%d",&n);
+	t=n%2;
+	if(t==1||n<8)   {
+	   printf("error");
+	   }
+    else{
+	
+    	int i, m, p[N], q[N];
+    	
+    	i=3;
+    	for (m=0;m<n;m++){
+    		p[m]=i;
+    		q[m]=n-i;
+    		if(p[m]>q[m]){
+			   break;
+			}
+    		i=i+2;
+    		
+    		    for(int g=2;g<p[m];g++){
+    		    	int x;
+    		    	x = p[m]%g;
+        if(x==0){
+        	a++;
+		         for(int f=2;f<q[m];f++){
+				 int y;
+				 y=q[m]%f;
+				 if(y==0){
+				 	a++;
+				 }
+			}
+        }
+        
+    }
+    if(a==0){
+	printf("%d %d\n",p[m],q[m]);
+	}
+    
+    
+		}
+	
+    
+}
+	return 0;
+}
