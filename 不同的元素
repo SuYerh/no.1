@@ -1,0 +1,47 @@
+不同的元素
+
+描述
+给定一个整型数组，统计不同的元素的个数。
+
+输入
+每组输入占一行，每先给出正整数n（≤30），随后是n个整数，以空格分隔。
+
+输出
+输出占一行,以回车结束。输出不同的元素的个数。
+
+样例
+
+输入
+4 3 -5 2 8
+8 -5 8 8 8 8 8 8 -5
+	
+输出
+4
+2
+#include<stdio.h>
+#define N 100
+int main(){
+	int t;
+
+	int n,i,lee[N];
+	scanf("%d",&n);
+		for(i=0;i<n;i++){
+			scanf("%d",&lee[i]);
+		}
+		int p=0,q=0;
+		
+	for(int j=0;j<n;j++){
+		int m=n;
+        for(int x=j+1;x<n;x++){
+        	if(lee[x]==lee[m]){
+        		p--;
+			}
+        	if(lee[j]==lee[x]){
+        		m=x;
+			   p++;}
+			   
+		}	
+	}
+	printf("%d\n",n-p);
+	return 0;
+}
