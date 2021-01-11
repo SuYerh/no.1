@@ -1,0 +1,62 @@
+回文数
+
+描述
+
+程序中输入一个正整数(32位int可以存放下)，请判断他是否为回文数。
+
+提示：回文数：类似1234321，123321等这样，顺序和逆序相同的整数称为回文数。
+
+输入
+
+每个测试输入包含1个测试用例，格式为
+
+  第1行：正整数n 
+
+  第2行：正整数x1
+
+  第3行：正整数x2
+
+  ... ... ...
+
+  第n+1行：正整数xn
+
+输出
+
+若n是回文数，输出Yes，否则输出No。
+
+
+样例1
+
+输入             输出
+
+3
+
+1231             No
+
+12321            Yes
+
+12345            No
+#include <stdio.h> 
+#include<string.h>              
+int main() 
+{ 
+    int j,i,n,t,k;
+	scanf("%d",&t); 
+    char a[999],b[999]; 
+    for(k=0;k<t;k++){
+	
+    scanf("%s",a);               
+    n=strlen(a);                 
+    for(i=0,j=n-1;i<n;i++,j--)   
+        b[j]=a[i];
+    for(i=0;i<n;i++) 
+    { 
+        if(b[i]!=a[i]) 
+		 break;                  
+    } 
+    if(i==n) printf("Yes\n");     
+    else printf("No\n"); 
+     
+}
+return 0;
+}
