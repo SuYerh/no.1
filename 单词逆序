@@ -1,0 +1,49 @@
+单词逆序
+描述
+输入一行语句，把里面每个单词都逆序输出, 其他符号保持不变。单词之间由1个或者多个空格分隔。
+
+输入
+每个输入包含一个测试用例，输入一行语句，单词之间用空格分隔，以回车结束。
+
+输出
+每组输出占一行，输出逆序后的语句。
+
+样例
+输入
+I like thinking...
+
+输出
+I ekil gnikniht...
+
+#include<stdio.h>
+#include<string.h>
+int main(){
+	char a[2000]={0};
+	fgets(a,2000,stdin);
+	int l=strlen(a);
+	int f=0,z=-1,ff=0;
+	for(int i=0;i<l-1;i++){
+		if(a[i]<'A'||a[i]>'z'){
+		    ff++;
+			f=i-z-1;
+			z=i;
+		}
+		if(a[i+2]=='0'){
+			f=i-z;
+			z=i;
+			for(int j=z;j>z-f;j++){
+				printf("%c",a[j]);
+			}
+		}
+		if(z>=1&&z==i){
+			for(int j=z-1;j>z-f-1;j--){
+				printf("%c",a[j]);
+			}
+			for(int j=z;j<z+ff;j++){
+				printf("%c",a[j]);
+			}
+			ff=0;
+		}
+	}
+	return 0;
+}
